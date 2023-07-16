@@ -12,7 +12,7 @@ const InReview = () => {
       attach: 6,
       alarm: "6 Days Left",
       assigned: "Sanu",
-      avatar: "https://cdn-icons-png.flaticon.com/128/706/706830.png",
+      avatar: "/images/AvatarImg9.png",
     },
     {
       name: "Space Tasks 2",
@@ -21,14 +21,14 @@ const InReview = () => {
       attach: 6,
       alarm: "6 Days Left",
       assigned: "Sanu",
-      avatar: "https://cdn-icons-png.flaticon.com/128/4128/4128176.png",
+      avatar: "/images/AvatarImg8.png",
     },
   ];
   const [todos, settodos] = useState(sampleData);
   return (
     <Box className="flex flex-col">
       <Notes
-        name={"In Review"}
+        name={"Review"}
         cardData={todos}
         setCardData={settodos}
         border="rgb(253 224 71)"

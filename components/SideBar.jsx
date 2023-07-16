@@ -119,7 +119,7 @@ export default function SideBar() {
     setOpen(false);
   };
   const menu = [
-    { name: "Explore", icon: <ExploreIcon /> },
+    { name: "Explore", icon: <ExploreIcon style={{ color: "blue" }} /> },
     { name: "Starred", icon: <StarOutlineIcon /> },
     { name: "Message", icon: <MessageIcon /> },
     { name: "Trending", icon: <TrendingUpIcon /> },
@@ -187,18 +187,54 @@ export default function SideBar() {
             <MenuIcon />
           </IconButton>
           <Box className="bg-[#F7F8FA] space-x-5 text-[#7D8FB3] h-[75px] flex justify-between w-full items-center">
-            <Box>Constructor</Box>
+            <Typography fontWeight={700} fontSize={18} color="#4D5E80">
+              Constructor
+            </Typography>
             <Box
               className={`md:${
                 open ? "hidden" : "flex"
               } space-x-10 hidden items-center`}
             >
-              <Typography className="cursor-pointer">Dashboard</Typography>
-              <Typography className="cursor-pointer">About Us</Typography>
-              <Typography className="cursor-pointer">News</Typography>
-              <Typography className="cursor-pointer">User Policy</Typography>
-              <Typography className="cursor-pointer">Contact</Typography>
-              <Typography className="cursor-pointer">
+              <Typography
+                className="cursor-pointer"
+                fontSize={13}
+                fontWeight={700}
+              >
+                Dashboard
+              </Typography>
+              <Typography
+                className="cursor-pointer"
+                fontSize={13}
+                fontWeight={700}
+              >
+                About Us
+              </Typography>
+              <Typography
+                className="cursor-pointer"
+                fontSize={13}
+                fontWeight={700}
+              >
+                News
+              </Typography>
+              <Typography
+                className="cursor-pointer"
+                fontSize={13}
+                fontWeight={700}
+              >
+                User Policy
+              </Typography>
+              <Typography
+                className="cursor-pointer"
+                fontSize={13}
+                fontWeight={700}
+              >
+                Contact
+              </Typography>
+              <Typography
+                className="cursor-pointer"
+                fontSize={13}
+                fontWeight={700}
+              >
                 <MoreHorizIcon />
               </Typography>
               <Paper
@@ -231,8 +267,22 @@ export default function SideBar() {
               <AccountCircleIcon sx={{ color: "#C3CAD9" }} />
             </Box>
             <Box className="md:flex space-x-4 items-center hidden">
-              <AccountCircleIcon sx={{ color: "#C3CAD9", cursor: "pointer" }} />
-              <Typography className="cursor-pointer">Clayton Santos</Typography>
+              <AccountCircleIcon
+                sx={{
+                  color: "#C3CAD9",
+                  cursor: "pointer",
+                  height: "30px",
+                  width: "30px",
+                }}
+              />
+              <Typography
+                className="cursor-pointer"
+                color="#6B7A99"
+                fontWeight={700}
+                fontSize={13}
+              >
+                Clayton Santos
+              </Typography>
               <Box className="border rounded-full flex items-center p-[10px] bg-[#fff]">
                 <NotificationsIcon
                   sx={{ color: "#C3CAD9", cursor: "pointer" }}
@@ -287,21 +337,22 @@ export default function SideBar() {
         <List className="flex justify-end flex-col h-full">
           {[
             {
-              name: "Rajeev",
-              icon: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
+              name: "Neha",
+              icon: "/images/AvatarImg10.png",
             },
             {
-              name: "Neha",
-              icon: "https://cdn-icons-png.flaticon.com/128/6997/6997662.png",
+              name: "Rahul",
+              icon: "/images/AvatarImg11.png",
             },
             {
               name: "Satyam",
-              icon: "https://cdn-icons-png.flaticon.com/128/4128/4128176.png",
+              icon: "/images/AvatarImg12.png",
             },
             {
-              name: "Meenal",
-              icon: "https://cdn-icons-png.flaticon.com/128/706/706830.png",
+              name: "Alfred Brynat",
+              icon: "/images/AvatarImg13.png",
             },
+            { name: "Add", icon: "/images/AddIcon.png" },
           ].map((item, index) => (
             <ListItem key={index} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -330,32 +381,51 @@ export default function SideBar() {
           ))}
         </List>
       </Drawer>
-      <Box className="hidden md:block w-[16rem] bg-[#F7F8FA]">
+      <Box className="hidden md:block w-[16rem] pr-3 bg-[#F7F8FA]">
         <Box className="pt-4 flex justify-between">
           <Box className="border rounded-full flex items-center p-2 bg-[#fff] cursor-pointer">
-            <PersonIcon />
+            <PersonIcon style={{ color: "#C3CAD9" }} />
           </Box>
           <Box className="border rounded-full flex items-center p-2 bg-[#fff] cursor-pointer">
-            <MoreHorizIcon />
+            <MoreHorizIcon style={{ color: "#C3CAD9" }} />
           </Box>
         </Box>
-        <Box className="flex flex-col justify-center">
+        <Box className="flex flex-col justify-center space-y-4">
           <Box className="flex justify-center">
             <Image
+              src="/images/Avatar.png"
+              width={130}
+              height={130}
+              alt="Avatar"
+            />
+            {/* <Image
               src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png"
               width={130}
               height={130}
               alt=""
-            />
+            /> */}
           </Box>
-          <Typography className="text-center">Hello Alfred Bryant</Typography>
-          <Typography className="text-center">
+          <Typography
+            className="text-center"
+            fontSize={16}
+            fontWeight={700}
+            fontFamily={"Roboto"}
+            color="#6B7A99"
+          >
+            Hello Alfred Bryant
+          </Typography>
+          <Typography
+            className="text-center"
+            fontWeight={700}
+            fontSize={14}
+            color="#ADB8CC"
+          >
             adrain.nader@yahoo.com
           </Typography>
           <Stack
             direction={"row"}
             flexWrap="wrap"
-            justifyContent="start"
+            justifyContent="center"
             alignItems="start"
             gap={2}
           >
@@ -369,8 +439,10 @@ export default function SideBar() {
                 >
                   <Box className="flex justify-center">{item?.icon}</Box>
                   <Typography
-                    className={`flex justify-center p-3 ${
-                      item?.text === "Notes" ? "text-[#3361FF]" : ""
+                    className={`flex justify-center p-3 text-xs ${
+                      item?.text === "Notes"
+                        ? "text-[#3361FF] font-black"
+                        : "font-bold text-[#ADB8CC]"
                     }`}
                   >
                     {item?.text}
@@ -379,37 +451,14 @@ export default function SideBar() {
               );
             })}
           </Stack>
+          <Image
+            src="/images/Social.png"
+            width={240}
+            height={60}
+            alt=""
+            className="fixed bottom-0 bg-[#fff] cursor-pointer"
+          />
         </Box>
-        {/* <DrawerHeader /> */}
-        {/* <Typography component="span" paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography component="span" paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}
       </Box>
     </Box>
   );

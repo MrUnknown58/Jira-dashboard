@@ -11,7 +11,7 @@ const Done = () => {
       menu: 4,
       attach: 6,
       alarm: "6 Days Left",
-      avatar: "https://cdn-icons-png.flaticon.com/128/706/706830.png",
+      avatar: "/images/AvatarImg8.png",
       assigned: "Sanu",
     },
   ];

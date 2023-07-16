@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import TicketCard from "./TicketCard";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AddIcon from "@mui/icons-material/Add";
 
 const Notes = ({ name, cardData, setCardData, border }) => {
+  const [AddingNew, setAddingNew] = useState(false);
   const handleSubmit = (desc, flag) => {
     // console.log("Handle Submut inside Notes");
     setCardData([
@@ -12,7 +14,7 @@ const Notes = ({ name, cardData, setCardData, border }) => {
       {
         name: "Space Tasks 2",
         desc: desc,
-        avatar: "https://cdn-icons-png.flaticon.com/128/706/706830.png",
+        avatar: "/images/Avatar.png",
         assigned: "Robin",
         menu: 4,
         attach: 6,
@@ -28,8 +30,13 @@ const Notes = ({ name, cardData, setCardData, border }) => {
           sx={{ width: "258px", borderColor: border, borderLeftWidth: "4px" }}
           // className={`border-l-4 border-${border}-500`}
         >
-          <CardContent className="pb-[4px] flex items-center justify-evenly">
-            <Typography gutterBottom variant="h7" component="span">
+          <CardContent className="flex items-center justify-evenly py-4 px-4 uppercase">
+            <Typography
+              gutterBottom
+              fontSize={14}
+              fontWeight={900}
+              component="span"
+            >
               {name}
             </Typography>
             <Box className="border rounded-full flex items-center px-2 bg-[#F7F8FA]">
@@ -39,7 +46,13 @@ const Notes = ({ name, cardData, setCardData, border }) => {
               style={{ color: "#C3CAD9" }}
               className="cursor-pointer"
             />
-            <AddIcon style={{ color: "#C3CAD9" }} className="cursor-pointer" />
+            <AddIcon
+              style={{ color: "#C3CAD9" }}
+              className="cursor-pointer"
+              onClick={() => {
+                setAddingNew(true);
+              }}
+            />
           </CardContent>
         </Card>
       </Box>
@@ -51,6 +64,8 @@ const Notes = ({ name, cardData, setCardData, border }) => {
             index={index}
             length={cardData.length}
             handleSubmit={handleSubmit}
+            AddingNew={AddingNew}
+            setAddingNew={setAddingNew}
           />
         );
       })}
